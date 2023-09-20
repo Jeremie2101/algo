@@ -1,0 +1,29 @@
+ALGORITHM CompteurMotsEtVoyelles
+VAR
+    compteurMots: Integer
+    compteurVoyelles: Integer
+    caractereActuel: Character
+    phrase: String
+BEGIN
+    compteurMots <- 0
+    compteurVoyelles <- 0
+    caractereActuel <- Vide
+    
+    OUTPUT "Entrez une phrase se terminant par un point : "
+    INPUT phrase
+    
+    FOR EACH caractereActuel IN phrase
+        IF caractereActuel EST une lettre
+            IF caractereActuel EST une voyelle (a, e, i, o, u, y)
+                INCREMENTER compteurVoyelles DE 1
+            END IF
+        ELSE IF caractereActuel EST un espace
+            INCREMENTER compteurMots DE 1
+        END IF
+    END FOR
+    
+    INCREMENTER compteurMots DE 1
+    
+    OUTPUT "Nombre de mots dans la phrase : ", compteurMots
+    OUTPUT "Nombre de voyelles dans la phrase : ", compteurVoyelles
+END
